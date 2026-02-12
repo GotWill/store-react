@@ -2,9 +2,7 @@ import express from "express";
 import Stripe from "stripe";
 import cors from "cors";
 
-const stripe = new Stripe(
-  "sk_test_51My2HlAidB9BOOfUe0ufDFYJGtTkuQOSSRJYxfnc25gLn3Vh2I6Q8lvB2ixgyNExDUjvlHxSkNgcxxnGJWb73R2F00cQSfPmu2"
-);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 const app = express();
 app.use(express.json());
@@ -49,7 +47,7 @@ app.post("/create-session", async (req, res) => {
         },
         metadata: {
           title: product.title,
-          image: product.image
+          image: product.image,
         },
         quantity,
       };
