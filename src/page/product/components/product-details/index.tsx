@@ -96,7 +96,10 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
           </span>
           <div className="flex items-center gap-4">
             <div className="flex items-center border border-border rounded-lg">
-              <button className="p-3 text-muted-foreground hover:text-primary transition-colors">
+              <button
+                className="p-3 text-muted-foreground hover:text-primary transition-colors"
+                data-testid={`decrement-${product.id}`}
+              >
                 <Minus
                   className="w-4 h-4"
                   onClick={() =>
@@ -104,11 +107,12 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                   }
                 />
               </button>
-              <span className="w-12 text-center font-medium text-foreground">
+              <span className="w-12 text-center font-medium text-foreground" data-testid='quantity-value'>
                 {quantity}
               </span>
               <button
                 className="p-3 text-muted-foreground hover:text-primary transition-colors"
+                data-testid={`increment-${product.id}`}
                 onClick={() => setQuantity((prev) => prev + 1)}
               >
                 <Plus className="w-4 h-4" />

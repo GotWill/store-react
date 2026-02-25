@@ -35,8 +35,8 @@ const UpsertAddress = ({ address, onClick }: UpsertAddressProps) => {
         toast.success(
           `${
             address.id
-              ? "Endereço atulizado com successo!"
-              : "Endereço criado com successo!"
+              ? "Endereço atulizado com sucesso!"
+              : "Endereço criado com sucesso!"
           }`
         );
       },
@@ -205,7 +205,7 @@ const UpsertAddress = ({ address, onClick }: UpsertAddressProps) => {
               name="state"
               render={({ field }) => (
                 <FormItem className="col-span-2">
-                  <FormLabel>Cidade</FormLabel>
+                  <FormLabel>Estado</FormLabel>
                   <FormControl>
                     <Input placeholder="Estado" {...field} className="w-full" />
                   </FormControl>

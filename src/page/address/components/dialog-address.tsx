@@ -13,6 +13,7 @@ export function DialogAddress() {
         <Button
           onClick={() => setIsOpenDialog(!openDilaog)}
           className="bg-primary hover:bg-primary/90 text-primary-foreground"
+          data-testid='Novo Endereço'
         >
           <Plus className="w-4 h-4 mr-2" />
           Novo Endereço

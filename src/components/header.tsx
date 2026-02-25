@@ -114,7 +114,7 @@ export function Header() {
               <div className="w-8 h-8 bg-muted rounded-full animate-pulse" />
             ) : (
               <DropdownMenu>
-                <DropdownMenuTrigger asChild>
+                <DropdownMenuTrigger asChild data-testid="dropdown">
                   {isAutenticated ? (
                     <Avatar>
                       <AvatarImage src={user?.imageUrl} />
@@ -138,7 +138,7 @@ export function Header() {
                   <DropdownMenuLabel>Minha conta</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
-                    <Link to="/enderecos">Endereços</Link>
+                    <Link to="/enderecos" data-testid="address">Endereços</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
                     <Link to="/favoritos">Favoritos</Link>
@@ -156,7 +156,7 @@ export function Header() {
                 </DropdownMenuContent>
               </DropdownMenu>
             )}
-            <Link to="/checkout">
+            <Link to="/checkout" data-testid="checkout">
               <Button
                 variant="ghost"
                 size="icon"

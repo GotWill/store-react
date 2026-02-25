@@ -101,15 +101,17 @@ const ProductInCart = ({ product, quantity, index }: ProductInCartProps) => {
               size="icon"
               className="h-9 w-9 text-muted-foreground hover:text-primary"
               onClick={() => handleMinus(product, quantity)}
+              data-testid={`decrement-product-${product.id}`}
             >
               <Minus className="w-4 h-4" />
             </Button>
-            <span className="w-10 text-center font-medium">{quantity}</span>
+            <span data-testid="quantity-value-checkout" className="w-10 text-center font-medium">{quantity}</span>
             <Button
               variant="ghost"
               size="icon"
               className="h-9 w-9 text-muted-foreground hover:text-primary"
               onClick={() => handlePlus(product, quantity)}
+              data-testid={`increment-product-${product.id}`}
             >
               <Plus className="w-4 h-4" />
             </Button>
@@ -126,6 +128,7 @@ const ProductInCart = ({ product, quantity, index }: ProductInCartProps) => {
             size="icon"
             className="h-9 w-9 text-destructive hover:text-destructive hover:bg-destructive/10"
             onClick={() => deleteItem(product.id)}
+            data-testid={`remove-product-${product.id}`}
           >
             <Trash2 className="w-4 h-4" />
           </Button>

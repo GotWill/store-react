@@ -32,6 +32,8 @@ export default function ProductDetailPage() {
   });
 
   useEffect(() => {
+    document.title = product?.title ?? "Store react";
+
     if (isLoading) return;
 
     if (isError || !product) {

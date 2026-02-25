@@ -11,7 +11,7 @@ import { LoaderCircleIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { useSigin } from "@/api/hooks/sigin";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import type { SVGProps } from "react";
 
 type FormSiginProps = {
@@ -19,13 +19,18 @@ type FormSiginProps = {
 };
 
 export function FormSigin({ closeModal }: FormSiginProps) {
+  const navigate = useNavigate()
   const form = useSiginForm();
   const {
     mutateHandleSigin: { mutate, isPending },
     handleSignInGoogle: { mutateAsync, isPending: isPendingGoogle },
   } = useSigin();
   const hanbdleLogin = async (data: schemaSigin) => {
-    mutate(data);
+    mutate(data, {
+      onSuccess: () => {
+        navigate("/")
+      }
+    });
   };
 
   const localtion = useLocation();
