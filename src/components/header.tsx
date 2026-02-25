@@ -119,7 +119,7 @@ export function Header() {
                     <Avatar>
                       <AvatarImage src={user?.imageUrl} />
                       <AvatarFallback>
-                        {user?.name?.split("")[0].toUpperCase()}
+                        {user?.firstName?.split("")[0].toUpperCase()}
                         {user?.lastName?.split("")[0].toUpperCase()}
                       </AvatarFallback>
                     </Avatar>

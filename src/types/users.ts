@@ -8,7 +8,7 @@ export type createUser = {
 
 export type User = {
   email: string;
-  name: string;
+  firstName: string;
   lastName: string;
   imageUrl: string;
   defaultAddressId: string;
@@ -22,8 +22,7 @@ export type CredentialUser = {
   photoURL: string | null;
 };
 
-
 export type UserAuth = {
-  uid: string,
-  email: string
-}
+  uid: string;
+  email: string;
+};
