@@ -79,10 +79,7 @@ export function useCheckout() {
       return;
     }
 
-    const { data } = await axios.post(
-      "http://localhost:3333/create-session",
-      cart
-    );
+    const { data } = await axios.post(import.meta.env.VITE_BACKEND_URL, cart);
 
     navigate(data);
   }
