@@ -1,6 +1,14 @@
+import { useCart } from "@/store/cart";
 import { CheckCircle2 } from "lucide-react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 function SuccessPage() {
+  const { clearCart } = useCart((state) => state);
+
+  useEffect(() => {
+    clearCart();
+  }, []);
+
   return (
     <div className="bg-slate-50 py-12 px-4 font-sans flex items-center justify-center">
       <div className="max-w-md w-full mx-auto">

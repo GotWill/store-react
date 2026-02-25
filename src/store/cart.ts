@@ -13,6 +13,7 @@ interface CartState {
   addItem: (product: CartItem) => void;
   updateQuantity: (product: Product, quantity: number) => void;
   deleteItem: (id: number) => void;
+  clearCart: () => void;
   _updateTotals: (newCart: CartItem[]) => void;
   subtotal: number;
   shipping: number;
@@ -68,6 +69,9 @@ export const useCart = create<CartState>()(
       deleteItem: (id: number) => {
         const newCart = get().cart.filter(({ product }) => product.id !== id);
         get()._updateTotals(newCart);
+      },
+      clearCart: () => {
+        set({ cart: [] });
       },
     }),
     {
